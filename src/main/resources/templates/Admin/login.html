@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .card {
+            border-radius: 15px;
+        }
+        .alert {
+            border-radius: 15px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form class="user" th:action="@{/login}" method="post">
+                    <h5 class="card-title text-center">Sign in</h5>
+
+                    <div th:if="${param.error}" class="alert alert-danger text-center" th:text="${error}">
+                        <!-- Thông báo lỗi sẽ được hiển thị ở đây nếu có -->
+                    </div>
+                    <div th:if="${param.logout}" class="alert alert-success text-center">
+                        You have been logged out!
+                    </div>
+
+                        <div class="mb-3">
+                            <input type="email" name="username" class="form-control form-control-user"
+                                   id="username" aria-describedby="emailHelp"
+                                   placeholder="Enter Email Address...">
+                        </div>
+                        <!-- Password input -->
+                        <div class="mb-3">
+                            <input type="password" name="password" id="password" class="form-control form-control-user"
+                                   placeholder="Password">
+                        </div>
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn-block mb-3">Sign in</button>
+
+                        <div class="row">
+                            <div class="col text-center">
+                                <!-- Simple link -->
+                                <a class="small" th:href="@{/forgot-password}" href="../Forgot-password.html">Forgot Password?</a>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Register button -->
+                    <div class="text-center">
+                        <a class="small" th:href="@{/register}">Create an Account!</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

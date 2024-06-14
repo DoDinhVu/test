@@ -93,4 +93,8 @@ public class AuthController {
 		return "Register";
 		
 	}
+	
+	public void tesst(){
+	
+	}
 }
